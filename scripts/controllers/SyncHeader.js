@@ -69,7 +69,6 @@ function SyncHeader (element) {
     let brandingWidth = siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth;
     const aboveMobileBarBreakpoint = window.innerWidth > 768;
     const specialIconsTooWide = socialSearchWidth + cartWidth + padding >= headerSpecialWidth;
-    console.log(aboveMobileBarBreakpoint, specialIconsTooWide);
 
     // If below the mobile bar breakpoint (i.e., where the mobile nav bar shows up),
     // allow the title and tagline to wrap if it's wider than the header + PADDING.
