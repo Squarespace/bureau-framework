@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="touch-styles">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {.if template.mobileStylesEnabled}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {.end}
+    {squarespace-headers}
+  <script>
+    (function(){
+      var touchTest = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+      if (!touchTest) {
+        document.documentElement.className = document.documentElement.className.replace(/touch\-styles/g, '');
+      }
+    })();</script>
+  </head>
+  <body id="{squarespace.page-id}" class="{squarespace.page-classes}" data-controller="SyncHeader, AddScrollingClass, HeaderScroll, BodyMinHeight">
+    <div class="nav-close-overlay">
+
+    </div>
+    <div class="nav-close-toggle-wrapper" id="navCloseToggleWrapper">
+      <a class="nav-toggle-close-label responsive-position--left" id="navCloseToggle" data-controller="NavToggle">
+        <svg class="Icon Icon--close close-icon" viewBox="0 0 18 18">
+          <use xlink:href="/assets/ui-icons.svg#close-icon-line"></use>
+        </svg>
+      </a>
+    </div>
+    <div id="sideTrayWrapper" class="sidetray-wrapper">
+      <div class="main-nav-wrapper responsive-padding--top responsive-padding--bottom" data-controller="NavOverflow">
+        <div class="nav-blocks-wrapper">
+          <squarespace:navigation navigationId="mainNav" template="navigation" />
+          <squarespace:block-field id="navBlocks" columns="1" label="Nav Blocks" />
+        </div>
+      </div><!--
+      --><div class="sidetray-blocks responsive-padding--top responsive-padding--bottom" data-controller="SidetrayBlocksOverflow">
+        <div class="sidetray-blocks-wrapper">
+          <squarespace:block-field id="sideTrayBlocks" columns="1" label="Sidetray Blocks" />
+        </div>
+      </div>
+    </div>
+
+    <form class="header-search-form" id="headerSearch" action="/search" method="get">
+      <input class="header-search-form-input" name="q" placeholder="Search" type="text" spellcheck="false" value="" autocomplete="off">
+    </form>
+
+    {.if website.socialAccounts}
+    {.section website}
+    <div class="mobile-social">
+      <nav class="sqs-template-social-icons sqs-svg-icon--list" data-content-field="connected-accounts">
+        {@|apply sqs-social-links}
+      </nav>
+    </div>
+    {.end}
+    {.end}
+
+    <div id="site" class="site-container clearfix">
+
+      <div class="sqs-announcement-bar-dropzone header-announcement-wrapper responsive-padding--left responsive-padding--right" id="headerAnnouncementWrapper">
+        <header id="header" class="site-header loading" role="banner">
+          <a class="nav-toggle-label flex-item" id="navToggle" data-controller="NavToggle">
+            <svg class="Icon Icon--hamburger nav-toggle-label-icon" viewBox="0 0 26 18">
+              <use xlink:href="/assets/ui-icons.svg#hamburger-icon--even"></use>
+            </svg>
+          </a>
+
+          <div class="logo-wrapper flex-item">
+          {.section website}
+            {.section logoImageUrl}
+              <div class="logo-image branding" data-content-field="site-title">
+                <a href="/"><img src="{logoImageUrl}?format=1500w" alt="{siteTitle}" /></a>
+                {.if website.siteTagLine}<div class="site-tagline-logo">{siteTagLine}</div>{.end}
+              </div>
+            {.or}
+              <div class="site-title branding" data-content-field="site-title"><a href="/"><span class="site-title-text">{siteTitle}</span>{.section siteTagLine} <span class="site-tagline">{@}</span>{.end}</a></div>
+            {.end}
+          {.end}
+          </div>
+
+          {.if website.socialAccounts}
+          {.section website}
+           <nav class="header-special-social--shown-on-collapse sqs-template-social-icons sqs-svg-icon--list">
+             {@|apply sqs-social-links}
+           </nav>
+          {.end}
+          {.end}
+
+          <div class="header-special flex-item">
+            <div class="social-search-wrapper{.if showCart} cart-visible{.end}">
+              <div class="social-ellipsis" id="socialEllipsis" data-controller="SocialToggle">
+                <svg class="ellipsis-icon" viewBox="0 0 100 24">
+                  <use xlink:href="/assets/ui-icons.svg#ellipsis-icon"></use>
+                </svg>
+                <svg class="social-close-icon Icon Icon--close" viewBox="0 0 18 18">
+                  <use xlink:href="/assets/ui-icons.svg#close-icon-line"></use>
+                </svg>
+              </div><!--
+               {.if website.socialAccounts}
+               {.section website}
+                --><nav class="header-special-social sqs-template-social-icons sqs-svg-icon--list" data-content-field="connected-accounts">
+                  {@|apply sqs-social-links}
+                </nav><!--
+               {.end}
+               {.end}
+             --><a href="/search" rel="search" class="header-search" data-controller="SearchToggle">
+                <svg class="Icon Icon--search search-icon" viewBox="0 0 20 20" shape-rendering="geometricPrecision">
+                  <use xlink:href="/assets/ui-icons.svg#search-icon"></use>
+                </svg>
+                <svg class="Icon Icon--close search-close-icon" viewBox="0 0 18 18">
+                  <use xlink:href="/assets/ui-icons.svg#close-icon-line"></use>
+                </svg>
+               </a>
+              </div><!--
+             -->{.if showCart}<a href="{shoppingCart|cart-url}" class="{squarespace.cart-classes} custom-cart">
+              <div class="custom-cart-bag">
+                <svg class="Icon Icon--bag custom-cart-bag-icon" viewBox="0 0 34 38">
+                  <use class="use--odd" xlink:href="/assets/ui-icons.svg#bag-icon--odd"></use>
+                  <use class="use--even" xlink:href="/assets/ui-icons.svg#bag-icon--even"></use>
+                </svg>
+                {shoppingCart|cart-quantity}
+              </div>
+            </a>{.end}
+          </div>
+        </header>
+      </div>
+
+      <main id="page" class="site-page loading responsive-padding--left responsive-padding--right site-page--{collection.typeName}{.equal? collection.typeName "page"}{.or}-{.section item}item{.or}list{.end}{.end}" role="main" data-content-field="main-content" data-controller="FadeInContent">
+
+        {squarespace.main-content}
+
+      </main>
+
+      <footer id="footer" class="site-footer responsive-margin--top responsive-padding--left responsive-padding--right responsive-padding--top responsive-padding--bottom" role="contentinfo">
+        <squarespace:block-field id="footerBlocks" columns="12" label="Footer Content" />
+        <div id="footerNavWrapper" class="nav-wrapper footer-nav">
+          <squarespace:navigation navigationId="footerNav" template="navigation" />
+        </div>
+      </footer>
+
+    </div>
+
+    <div id="mobileBar" class="mobile-bar{.if showCart} mobile-bar--has-cart{.end}" data-controller="MobileOffset">
+      <a class="nav-toggle-label nav-toggle-label--mobile flex-item" id="navToggleMobile" data-controller="NavToggle">
+        <svg class="Icon Icon--hamburger nav-toggle-label-icon" viewBox="0 0 26 18">
+          <use class="use--odd" xlink:href="/assets/ui-icons.svg#hamburger-icon--odd"></use>
+          <use class="use--even" xlink:href="/assets/ui-icons.svg#hamburger-icon--even"></use>
+        </svg>
+      </a><!--
+      --><div class="social-ellipsis social-ellipsis--mobile flex-item" id="socialEllipsisMobile" data-controller="SocialToggle">
+        <svg class="ellipsis-icon" viewBox="0 0 25 6">
+          <use xlink:href="/assets/ui-icons.svg#ellipsis-icon"></use>
+        </svg>
+        <svg class="Icon Icon--close social-close-icon" viewBox="0 0 18 18">
+          <use xlink:href="/assets/ui-icons.svg#close-icon-line"></use>
+        </svg>
+      </div><!--
+      --><div class="search-cart--mobile flex-item">
+        <a href="/search" rel="search" class="header-search header-search--mobile" data-controller="SearchToggle">
+          <svg class="Icon Icon--search search-icon" viewBox="0 0 20 20">
+            <use xlink:href="/assets/ui-icons.svg#search-icon"></use>
+          </svg>
+          <svg class="Icon Icon--close search-close-icon" viewBox="0 0 18 18">
+            <use xlink:href="/assets/ui-icons.svg#close-icon-line"></use>
+          </svg>
+        </a>
+        {.if showCart}<a href="{shoppingCart|cart-url}" class="{squarespace.cart-classes} custom-cart mobile-cart">
+          <div class="custom-cart-bag">
+            <svg class="Icon Icon--bag custom-cart-bag-icon" viewBox="0 0 34 38">
+              <use class="use--odd" xlink:href="/assets/ui-icons.svg#bag-icon--odd"></use>
+              <use class="use--even" xlink:href="/assets/ui-icons.svg#bag-icon--even"></use>
+            </svg>
+            {shoppingCart|cart-quantity}
+          </div>
+        </a>{.end}
+      </div><!--
+      -->
+    </div>
+
+    <squarespace:script src="site-bundle.js" combo="false" />
+    {squarespace-footers}
+
+  </body>
+</html>

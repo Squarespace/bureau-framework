@@ -1,0 +1,45 @@
+{
+  "name": "bureau-framework",
+  "version": "1.0.0",
+  "description": "A framework with grid-based, magazine-style blog.",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "scripts": {
+    "build": "squarespace assemble && webpack",
+    "clean": "squarespace clean",
+    "deploy": "squarespace setup && squarespace deploy",
+    "lint": "eslint scripts",
+    "start": "squarespace setup && (npm run watch & npm run server)",
+    "server": "squarespace runserver --auth",
+    "server:auth": "npm run server -- --run-authenticated",
+    "watch": "squarespace assemble --watch & webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Squarespace/bureau-framework.git"
+  },
+  "dependencies": {
+    "@squarespace/controller": "1.0.2",
+    "@squarespace/core": "1.0.1",
+    "@squarespace/fonts-loaded": "1.0.2",
+    "@squarespace/layout-autocolumns": "1.0.1",
+    "@squarespace/polyfills": "1.0.2",
+    "babel-runtime": "6.22.0",
+    "core-js": "2.4.1",
+    "lodash": "4.17.2"
+  },
+  "devDependencies": {
+    "eslint-config-squarespace": "^1.0.1",
+    "@squarespace/toolbelt": "^0.8.3",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.14.1",
+    "eslint-loader": "^1.5.0",
+    "webpack": "^1.14.0"
+  },
+  "squarespace": {
+    "templateId": "skye-demo"
+  }
+}

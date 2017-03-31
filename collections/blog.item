@@ -1,0 +1,208 @@
+{.section item}
+<div class="blog-wrapper" data-content-field="main-content" data-item-id="{id}">
+  {.main-image?}
+  <section class="blog-item-banner has-main-image">
+    <div class="blog-item-banner-image" data-controller="SetUpBannerImage"><img {@|image-meta} data-load="false" /></div>
+  </section>
+  {.or}
+  <div class="blog-item-title blog-item-title--top">
+    <time class="dt-published date-callout" datetime="{addedOn|date %F}" pubdate>
+      <div class="date-wrapper">
+        <span class="month">{addedOn|date %b} </span><span class="day">{addedOn|date %e}</span>
+      </div>
+    </time>
+    <h2 class="entry-title entry-title--large p-name" data-content-field="title"><time class="dt-published date-highlight" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}</h2>
+
+    <div class="meta-wrapper">
+      {.section author}<div class="blog-meta-item blog-meta-author"><a href="{collection.fullUrl}?author={author.id}" class="blog-author-name">{displayName}</a> </div>{.end}<!--
+
+      -->{.section categories}<div class="blog-meta-item blog-categories">{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="blog-category blog-category--{@}">{@}</a>{.alternates with}<span class="blog-meta-delimiter">, </span>{.end}</div>{.end}
+    </div>
+  </div>
+  {.end}
+
+  <div class="main-content blog-view-item clearfix">
+    <input id="show-comments" type="checkbox" />
+    <article id="article-{id}" class="entry--item h-entry clearfix {@|item-classes}">
+      {.main-image?}
+      <div class="blog-item-title">
+        <time class="dt-published date-callout" datetime="{addedOn|date %F}" pubdate>
+          <div class="date-wrapper">
+            <span class="month">{addedOn|date %b} </span><span class="day">{addedOn|date %e}</span>
+          </div>
+        </time>
+        <h2 class="entry-title entry-title--large p-name" itemprop="headline" data-content-field="title"><time class="dt-published date-highlight" itemprop="datePublished" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}</h2>
+
+        <div class="meta-wrapper">
+          {.section author}<div class="blog-meta-item blog-meta-author p-author author"><a href="{collection.fullUrl}?author={author.id}" class="blog-author-name">{displayName}</a> </div>{.end}
+
+          {.section categories}<div class="blog-meta-item blog-categories">{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="blog-category blog-category--{@}">{@}</a>{.alternates with}<span class="blog-meta-delimiter">, </span>{.end}</div>{.end}
+        </div>
+      </div>
+      {.or}
+      {.end}
+      <div class="blog-item-content-wrapper" data-controller="BlogProgressBar">
+        
+        <div class="pie-wrapper" id="pieWrapper">
+          <div class="pie pie--left" id="pieLeft"></div>
+          <div class="pie pie--right hide" id="pieRight"></div>
+          <div class="mask mask--right hide" id="pieMask"></div>
+          <div class="mask mask--left" id="maskLeft"></div>
+        </div>
+        <div class="blog-item-content e-content">{.section body}{@}{.end}</div>
+
+        <footer class="blog-item-footer">
+
+          <div class="footer-meta">
+          {.section author}
+            <div class="blog-meta-item blog-meta-author"><a href="{collection.fullUrl}?author={author.id}" class="blog-author-name">{displayName}</a></div>
+          {.end}
+
+          {.section categories}
+            <div class="blog-meta-item blog-categories">{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" class="blog-category blog-category--{@}">{@}</a>{.alternates with}<span class="blog-meta-delimiter">, </span>{.end}</div>
+          {.end}
+
+          {.section tags}
+            <div class="blog-item-tags">
+              {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" class="blog-item-tag blog-item-tag--{@|slugify}" rel="tag">{@}</a>{.alternates with}<span class="blog-meta-delimiter">, </span>{.end}
+            </div>
+          {.end}
+          </div>
+
+          <div class="blog-item-actions blog-item-actions--footer">
+            <div class="blog-item-actions-wrapper">
+              {@|apply sqs-share-buttons}
+            </div>
+          </div>
+
+          {.section author}
+            <div class="blog-item-author-profile blog-item-author-profile--footer responsive-margin--top">
+              {@|apply author.block}
+            </div>
+          {.end}
+
+        </footer>
+
+        {.if postItemInjectCode}<div class="blog-item-injection">{postItemInjectCode}</div>{.end}
+
+        <section class="blog-item-comments">
+          <div class="blog-item-comments-toggle-wrapper">
+            <label for="show-comments" title="Show/Hide Comments" class="blog-item-comments-toggle">
+              {.comments?}
+                {.if websiteSettings.disqusShortname}Leave a comment
+                {.or}
+                  {.section publicCommentCount}Show {@} comment{@|pluralize}
+                  {.or}Leave a comment
+                  {.end}
+                {.end}
+              {.end}</label>
+            <div id="blogItemCommentsContent" class="blog-item-comments-content">
+              {.comments?}
+              <div id="comments-{id}" class="p-comment">
+                {@|comments}
+              </div>
+              {.end}
+            </div>
+          </div>
+        </section>
+      </div>
+      <aside id="blogItemSidebar" class="blog-item-sidebar">
+        {.section author}
+          <div class="blog-item-author-profile blog-item-author-profile--sidebar">
+            {@|apply author.block}
+          </div>
+        {.end}
+        <squarespace:block-field id="blogItemSidebarContent" columns="12" label="Blog Item Sidebar" />
+      </aside>
+
+    </article>
+  </div>
+{.end}
+
+{.section pagination}
+<section class="blog-item-pagination">
+  {.section prevItem}<a href="{fullUrl}" class="blog-item-pagination-link blog-item-pagination-link--prev">
+    <div class="blog-item-label">
+      <svg class="prev-icon" viewBox="0 0 50 100">
+        <use xlink:href="/assets/ui-icons.svg#thick-arrow-left-icon"></use>
+      </svg>
+    </div>
+    <span class="pagination-title-wrapper">
+      {.main-image?}<img {@|image-meta} />{.end}
+      <h2 class="blog-item-pagination-title"><time class="dt-published date-pagination" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}</h2>
+    </span>
+  </a>{.or}{.end}<!--
+  -->{.section nextItem}<a href="{fullUrl}" class="blog-item-pagination-link blog-item-pagination-link--next">
+    <div class="blog-item-label">
+      <svg class="next-icon" viewBox="0 0 50 100">
+        <use xlink:href="/assets/ui-icons.svg#thick-arrow-right-icon"></use>
+      </svg>
+    </div>
+    <span class="pagination-title-wrapper">
+      {.main-image?}<img {@|image-meta} />{.end}
+      <h2 class="blog-item-pagination-title"><time class="dt-published date-pagination" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}</h2>
+    </span>
+  </a>{.or}{.end}
+</section>
+{.end}
+
+{.section item}
+  {.if collection.features.relatedItems.isEnabled}
+    <squarespace:related collectionId="{collection.id}" limit="3" itemId="{id}">
+      {.section items}
+        <h2 class="related-title responsive-padding--top">Related Posts</h2>
+        <section id="related" class="blog-item-related clear" data-controller="RelatedPostImages">
+          {.repeated section @}<article id="article-{id}" class="blog-list-item entry entry--list entry--related h-entry {@|item-classes}{.main-image?} has-main-image{.or} no-main-image{.end}" data-item-id="{id}" data-item-title="{title}">
+                <div class="thumbnail-title-wrapper">
+                  {.main-image?}
+                  <div class="excerpt-thumb">
+                    <a href="{fullUrl}" class="excerpt-image content-fill"><img {@|image-meta} /></a>
+                  </div>
+                  {.or}
+                  <div class="entry-title-wrapper">
+                    <div class="title-bg-wrapper">
+                      <h2 class="entry-title entry-title--list">
+                        <a href="{fullUrl}" class="u-url" rel="bookmark">
+                          <time class="dt-published date-callout" datetime="{addedOn|date %F}" pubdate>
+                            <div class="date-wrapper">
+                              <span class="month">{addedOn|date %b} </span><span class="day">{addedOn|date %e}</span>
+                            </div>
+                          </time>
+                          <time class="dt-published date-highlight" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>{title}
+                        </a>
+                      </h2>
+                    </div>
+                  </div>
+                  {.end}
+                </div>
+
+                <div class="entry-text">
+                  {.main-image?}
+                  <header class="entry-header">
+                    {.passthrough?}
+                    <a href="{sourceUrl}" class="entry-title-passthrough" target="_blank">
+                    {.or}
+                    <a href="{fullUrl}" class="u-url" rel="bookmark">
+                    {.end}
+                    <time class="dt-published date-callout" datetime="{addedOn|date %F}" pubdate>
+                      <div class="date-wrapper">
+                        <span class="month">{addedOn|date %b} </span><span class="day">{addedOn|date %e}</span>
+                      </div>
+                    </time>
+                    <h2 class="entry-title entry-title--list p-name">
+                      <time class="dt-published date-highlight" datetime="{addedOn|date %F}" pubdate>{addedOn|date %b %e} </time>
+                      {title}
+                    </h2>
+                    </a>
+                  </header>
+                  {.or}
+                  {.end}
+                </div>
+
+              </article>{.end}
+        </section>
+      {.end}
+    </squarespace:related>
+  {.end}
+</div>
+{.end}

@@ -1,0 +1,8 @@
+{.if author.avatarId}
+  <a href="{collection.fullUrl}?author={author.id}" class="author-avatar content-fill" data-controller="SimpleImageLoad" data-tweaks="tweak-show-blog-item-author-profile">
+    <img class="author-avatar-image" data-src="{avatarAssetUrl}" data-image="{avatarAssetUrl}" data-image-focal-point="0.5,0.5" data-load="false">
+  </a>
+{.end}
+<div class="author-name"><a href="{collection.fullUrl}?author={author.id}">{displayName}</a></div>
+{.section bio}<p class="author-bio">{@}</p>{.end}
+{.section websiteUrl}<a href="{@}" class="author-website" target="_blank">Website</a>{.end}

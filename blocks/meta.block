@@ -1,0 +1,5 @@
+{.section author}<{.if item}a href="{collection.fullUrl}?author={author.id}"{.or}div{.end} class="blog-meta-item blog-author">{.if firstName || lastName}{firstName} {lastName}{.or}{displayName}{.end}</{.if item}a{.or}div{.end}>{.end}<!--
+
+--><time class="blog-meta-item blog-date dt-published date-highlight" datetime="{publishOn|date %F}" pubdate><span class="blog-date-day--before">{publishOn|date %e}</span><span class="blog-date-month--short">{publishOn|date %b}</span><span class="blog-date-month--long">{publishOn|date %B}</span><span class="blog-date-day--after">{publishOn|date %e}</span><span class="blog-date-year">{publishOn|date %Y}</span></time><!--
+
+-->{.section categories}<div class="blog-meta-item blog-categories">{.repeated section @}<{.if item}a href="{collection.fullUrl}?category={@|url-encode}"{.or}span{.end} class="blog-category blog-category--{@}">{@}</{.if item}a{.or}span{.end}>{.alternates with}<span class="blog-meta-delimiter">, </span>{.end}</div>{.end}

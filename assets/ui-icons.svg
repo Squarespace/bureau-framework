@@ -1,0 +1,109 @@
+<svg id="uiIcons" xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+  <symbol id="search-icon" viewBox="0 0 20 20">
+    <g class="svg-icon">
+      <line fill="none" stroke-miterlimit="10" stroke-linecap="butt" x1="13.9" y1="14" x2="18.6" y2="18.6"/>
+      <circle fill="none" stroke-miterlimit="10" cx="9" cy="9" r="7"/>
+    </g>
+  </symbol>
+
+  <symbol id="search-icon--small" viewBox="0 0 15 15">
+    <g class="svg-icon">
+      <line fill="none" stroke-miterlimit="10" stroke-linecap="butt" x1="9.7" y1="9.8" x2="13.6" y2="13.5"/>
+      <circle fill="none" stroke-miterlimit="10" cx="6.5" cy="6.5" r="4.5"/>
+    </g>
+  </symbol>
+
+  <symbol id="hamburger-icon--even" viewBox="0 0 24 18">
+    <g class="svg-icon">
+      <line fill="none" stroke-miterlimit="10" x1="0" y1="2" x2="24" y2="2"/>
+      <line fill="none" stroke-miterlimit="10" x1="0" y1="9" x2="24" y2="9"/>
+      <line fill="none" stroke-miterlimit="10" x1="0" y1="16" x2="24" y2="16"/>
+    </g>
+  </symbol>
+
+  <symbol id="hamburger-icon--odd" viewBox="0 0 24 18">
+    <g class="svg-icon">
+      <line fill="none" stroke-miterlimit="10" x1="0" y1="1.5" x2="24" y2="1.5"/>
+      <line fill="none" stroke-miterlimit="10" x1="0" y1="8.5" x2="24" y2="8.5"/>
+      <line fill="none" stroke-miterlimit="10" x1="0" y1="15.5" x2="24" y2="15.5"/>
+    </g>
+  </symbol>
+
+  <symbol id="close-icon" viewBox="0 0 100 100">
+    <g class="svg-icon">
+      <polygon points="100,87.2 62.8,50 99.9,12.9 87.1,0.1 50,37.2 12.8,0 0,12.8 37.2,50 0.1,87.1 12.9,99.9 50,62.8 87.2,100 "/>
+    </g>
+  </symbol>
+
+  <symbol id="close-icon-line" viewBox="0 0 18 18">
+    <g class="svg-icon">
+      <line fill="none" stroke-miterlimit="10" stroke-linecap="butt" x1="0" y1="0" x2="18" y2="18"/>
+      <line fill="none" stroke-miterlimit="10" stroke-linecap="butt" x1="18" y1="0" x2="0" y2="18"/>
+    </g>
+  </symbol>
+
+  <symbol id="heart-icon" viewBox="0 0 64 64">
+    <g class="svg-icon">
+      <path d="M32,25.3c-4.4-10-16.9-7.7-17,3.9c0,6.4,6,8.8,10,11.3c3.9,2.5,6.6,5.9,7.1,7.3c0.4-1.4,3.4-4.9,7-7.4
+      c3.9-2.7,10-4.9,10-11.3C48.9,17.5,36.2,15.7,32,25.3z"/>
+    </g>
+  </symbol>
+
+  <symbol id="caret-down-icon" viewBox="0 0 100 64">
+    <g class="svg-icon">
+      <polygon points="100,14.1 85.9,0 50,35.9 14.1,0 0,14.1 49.9,64 50,63.9 50.1,64 "/>
+    </g>
+  </symbol>
+
+  <symbol id="thin-arrow-left-icon" viewBox="0 0 45 100">
+    <g class="svg-icon">
+      <polygon points="42.5,100 0,49.9 42.5,0 45,2.1 4.3,49.9 45,97.9   "/>
+    </g>
+  </symbol>
+
+  <symbol id="thin-arrow-right-icon" viewBox="0 0 45 100">
+    <g class="svg-icon">
+      <polygon points="2.5,100 45,49.9 2.5,0 0,2.1 40.7,49.9 0,97.9   "/>
+    </g>
+  </symbol>
+
+  <symbol id="thick-arrow-left-icon" viewBox="0 0 50 100">
+    <g class="svg-icon">
+      <polygon points="36.9,100 0,49.8 36.9,0 50,9.1 19.8,49.9 50,90.9   "/>
+    </g>
+  </symbol>
+
+  <symbol id="thick-arrow-right-icon" viewBox="0 0 50 100">
+    <g class="svg-icon">
+      <polygon points="13.1,100 50,49.8 13.1,0 0,9.1 30.2,49.9 0,90.9  "/>
+    </g>
+  </symbol>
+
+  <symbol id="ellipsis-icon" viewBox="0 0 100 24">
+    <g class="svg-icon">
+      <circle cx="12" cy="12" r="12"/>
+      <circle cx="50" cy="12" r="12"/>
+      <circle cx="88" cy="12" r="12"/>
+    </g>
+  </symbol>
+
+  <symbol id="bag-icon--even" viewBox="0 0 34 38">
+    <g class="svg-icon">
+      <path fill="none" stroke-miterlimit="10" d="M29,36H5c-1.7,0-3-1.6-3-3.5L4,15h26
+        l2,17.5C32,34.4,30.7,36,29,36z"/>
+      <path id="XMLID_1_" fill="none" stroke-miterlimit="10" d="M11.8,11c0-1.4,0.6-9,5.2-9s5,8.6,5,9
+        "/>
+    </g>
+  </symbol>
+
+  <symbol id="bag-icon--odd" viewBox="0 0 34 38">
+    <g class="svg-icon">
+      <path fill="none" stroke-miterlimit="10" d="M29.4,36.5H4.6
+        c-1.7,0-3.1-1.6-3.1-3.6l2.1-18.4h26.9l2.1,18.4C32.5,34.9,31.1,36.5,29.4,36.5z"/>
+      <path fill="none" stroke-miterlimit="10" d="M11.5,11c0-1.4,0.6-9.5,5.6-9.5
+        s5.4,9.1,5.4,9.5"/>
+    </g>
+  </symbol>
+
+</svg>
