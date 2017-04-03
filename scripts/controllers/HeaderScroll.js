@@ -1,5 +1,4 @@
 import debounce from 'lodash/debounce';
-import constants from '../constants';
 
 /*
  * Shrinks the header as you scroll down the page
@@ -58,7 +57,7 @@ function HeaderScroll (element) {
 
   const sync = () => {
     window.removeEventListener('scroll', handleScroll);
-    if (window.innerWidth <= constants.tabletBreakpoint) {
+    if (window.innerWidth <= 768) {
       return;
     }
     window.addEventListener('scroll', handleScroll);

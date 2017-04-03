@@ -1,6 +1,5 @@
 import { Tweak } from '@squarespace/core';
 import debounce from 'lodash/debounce';
-import constants from '../constants';
 
 /*
  * Positions stuff around the fixed header.
@@ -35,7 +34,8 @@ function SyncHeader (element) {
       headerWidth: header.offsetWidth,
       headerSpecialWidth: headerSpecial.offsetWidth,
       socialSearchWidth: socialSearch.offsetWidth,
-      cartWidth: customCart.offsetWidth
+      brandingWidth: siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth,
+      cartWidth: customCart ? customCart.offsetWidth : 0
     };
   };
 
@@ -67,27 +67,18 @@ function SyncHeader (element) {
     const headerWidth = elementWidths.headerWidth;
     const headerSpecialWidth = elementWidths.headerSpecialWidth;
     const socialSearchWidth = elementWidths.socialSearchWidth;
-    let cartWidth = 0;
-    let brandingWidth = siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth;
-    const aboveTabletBreakpoint = window.innerWidth > constants.tabletBreakpoint;
-    const specialIconsTooWide = socialSearchWidth + cartWidth + padding >= headerSpecialWidth;
+    const aboveMobileBarBreakpoint = window.innerWidth > 768;
+    const specialIconsTooWide = socialSearchWidth + elementWidths.cartWidth + padding >= headerSpecialWidth;
 
-    if (logoImage) {
-      brandingWidth = logoImage.offsetWidth;
-    }
-    if (customCart) {
-      cartWidth = elementWidths.cartWidth;
-    }
-
-    // If below the tablet breakpoint (i.e., where the mobile nav bar shows up),
+    // If below the mobile bar breakpoint (i.e., where the mobile nav bar shows up),
     // allow the title and tagline to wrap if it's wider than the header + PADDING.
-    if (window.innerWidth <= constants.tabletBreakpoint && brandingWidth + padding >= headerWidth) {
+    if (!aboveMobileBarBreakpoint && elementWidths.brandingWidth + padding >= headerWidth) {
       header.classList.remove('no-wrap');
 
     // Otherwise, see if the elements in the right header section are bigger
     // than their flex-boxed area. If so, add the collapse class and allow their
     // title and tagline to wrap.
-    } else if (aboveTabletBreakpoint && specialIconsTooWide) {
+    } else if (aboveMobileBarBreakpoint && specialIconsTooWide) {
       header.classList.add('collapse');
       header.classList.remove('no-wrap');
     }
