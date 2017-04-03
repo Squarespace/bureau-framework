@@ -33,7 +33,9 @@ function SyncHeader (element) {
       headerHeight: header.offsetHeight,
       headerWidth: header.offsetWidth,
       headerSpecialWidth: headerSpecial.offsetWidth,
-      socialSearchWidth: socialSearch.offsetWidth
+      socialSearchWidth: socialSearch.offsetWidth,
+      brandingWidth: siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth,
+      cartWidth: customCart ? customCart.offsetWidth : 0
     };
   };
 
@@ -65,14 +67,12 @@ function SyncHeader (element) {
     const headerWidth = elementWidths.headerWidth;
     const headerSpecialWidth = elementWidths.headerSpecialWidth;
     const socialSearchWidth = elementWidths.socialSearchWidth;
-    let cartWidth = customCart ? customCart.offsetWidth : 0;
-    let brandingWidth = siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth;
     const aboveMobileBarBreakpoint = window.innerWidth > 768;
-    const specialIconsTooWide = socialSearchWidth + cartWidth + padding >= headerSpecialWidth;
+    const specialIconsTooWide = socialSearchWidth + elementWidths.cartWidth + padding >= headerSpecialWidth;
 
     // If below the mobile bar breakpoint (i.e., where the mobile nav bar shows up),
     // allow the title and tagline to wrap if it's wider than the header + PADDING.
-    if (!aboveMobileBarBreakpoint && brandingWidth + padding >= headerWidth) {
+    if (!aboveMobileBarBreakpoint && elementWidths.brandingWidth + padding >= headerWidth) {
       header.classList.remove('no-wrap');
 
     // Otherwise, see if the elements in the right header section are bigger
