@@ -225,9 +225,12 @@ class Baseline {
     Array.from(items).forEach((item) => {
       item.style.width = '';
       const imgWrapper = item.querySelector('.' + this.config.imgWrapperSelector);
+      const img = imgWrapper.querySelector('img');
       const titleWrapper = item.querySelector('.' + this.config.titleWrapperSelector);
       if (imgWrapper) {
         imgWrapper.style.marginTop = '';
+        img.style.top = '';
+        img.style.left = '';
       } else if (titleWrapper) {
         titleWrapper.style.paddingTop = '';
       }
