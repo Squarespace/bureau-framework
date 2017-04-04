@@ -15,6 +15,7 @@ function BlogLayout (element) {
   let grid;
   let fontsLoaded;
   const gridWrapper = element;
+  const footer = document.querySelector('.site-footer');
   const tweaksToWatch = [
     'tweak-blog-list-max-width',
     'tweak-cards',
@@ -49,6 +50,7 @@ function BlogLayout (element) {
    */
   const gridReveal = () => {
     loadingSpinner.classList.add('hidden');
+    footer.classList.remove('show');
     const items = element.querySelectorAll('.grid-hidden');
     let i = 0;
     const interval = setInterval(() => {
@@ -56,6 +58,7 @@ function BlogLayout (element) {
         items[i].classList.remove('grid-hidden');
         i++;
       } else {
+        footer.classList.add('show');
         clearInterval(interval);
       }
     }, 130);
