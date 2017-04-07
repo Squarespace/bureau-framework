@@ -158,6 +158,11 @@ class TopAlign {
     this.rootNode.className = wrapperClassArray;
     const items = this.rootNode.querySelectorAll('.' + this.config.childSelector);
     Array.from(items).forEach((item) => {
+      const img = item.querySelector('img');
+      if (img) {
+        img.style.top = '';
+        img.style.left = '';
+      }
       item.style.width = '';
     });
   }
