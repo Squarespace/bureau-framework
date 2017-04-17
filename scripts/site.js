@@ -15,6 +15,7 @@ import RelatedPostImages from './controllers/RelatedPostImages';
 import SearchToggle from './controllers/SearchToggle';
 import SetUpBannerImage from './controllers/SetUpBannerImage';
 import SidetrayBlocksOverflow from './controllers/SidetrayBlocksOverflow';
+import SimpleImageLoad from './controllers/SimpleImageLoad';
 import SocialToggle from './controllers/SocialToggle';
 import SyncHeader from './controllers/SyncHeader';
 
@@ -33,5 +34,6 @@ controller.register('RelatedPostImages', RelatedPostImages);
 controller.register('SearchToggle', SearchToggle);
 controller.register('SetUpBannerImage', SetUpBannerImage);
 controller.register('SidetrayBlocksOverflow', SidetrayBlocksOverflow);
+controller.register('SimpleImageLoad', SimpleImageLoad);
 controller.register('SocialToggle', SocialToggle);
 controller.register('SyncHeader', SyncHeader);
