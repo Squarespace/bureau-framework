@@ -16,6 +16,7 @@ function BlogLayout (element) {
   let fontsLoaded;
   const gridWrapper = element;
   const footer = document.querySelector('.site-footer');
+  let windowWidth = window.innerWidth;
   const tweaksToWatch = [
     'tweak-blog-list-max-width',
     'tweak-cards',
@@ -150,6 +151,12 @@ function BlogLayout (element) {
    * First, hide all the items, then run grid.afterResize, then reveal the items.
    */
   const resizeHandler = () => {
+    // check to see if the width actually changed to avoid running
+    // when the bar comes in on scroll on ios.
+    if (windowWidth === window.innerWidth) {
+      return;
+    }
+
     const items = element.querySelectorAll('.entry--list');
     Array.from(items).forEach((item) => {
       item.classList.add('grid-hidden');
@@ -158,6 +165,7 @@ function BlogLayout (element) {
       grid.afterResize();
     }
     gridReveal();
+    windowWidth = window.innerWidth;
   };
 
   const debouncedResize = debounce(resizeHandler, 120);
