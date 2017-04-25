@@ -18,6 +18,7 @@ import SidetrayBlocksOverflow from './controllers/SidetrayBlocksOverflow';
 import SimpleImageLoad from './controllers/SimpleImageLoad';
 import SocialToggle from './controllers/SocialToggle';
 import SyncHeader from './controllers/SyncHeader';
+import UserAccountsSetup from './controllers/UserAccountsSetup';
 
 // Bind controllers
 controller.register('AddScrollingClass', AddScrollingClass);
@@ -37,3 +38,4 @@ controller.register('SidetrayBlocksOverflow', SidetrayBlocksOverflow);
 controller.register('SimpleImageLoad', SimpleImageLoad);
 controller.register('SocialToggle', SocialToggle);
 controller.register('SyncHeader', SyncHeader);
+controller.register('UserAccountsSetup', UserAccountsSetup);

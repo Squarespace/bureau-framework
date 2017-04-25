@@ -15,7 +15,8 @@ function SyncHeader (element) {
     'tweak-site-branding-layout',
     'logoHeight',
     'tweak-show-search-in-header',
-    'tweak-show-social-in-header'
+    'tweak-show-social-in-header',
+    'tweak-user-account-link-position'
   ];
 
   const header = element.querySelector('.site-header');
@@ -26,6 +27,8 @@ function SyncHeader (element) {
   const siteTitle = element.querySelector('.site-title');
   const logoImage = element.querySelector('.logo-image');
   const customCart = element.querySelector('.sqs-custom-cart');
+  const userAccountIconVisible = Tweak.getValue('tweak-user-account-link-position') === 'Icon On Right';
+  const userAccountIcon = element.querySelector('.site-header .user-account-link--icon');
   const padding = 20;
 
   const getElementWidths = () => {
@@ -35,7 +38,8 @@ function SyncHeader (element) {
       headerSpecialWidth: headerSpecial.offsetWidth,
       socialSearchWidth: socialSearch.offsetWidth,
       brandingWidth: siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth,
-      cartWidth: customCart ? customCart.offsetWidth : 0
+      cartWidth: customCart ? customCart.offsetWidth + padding : 0,
+      userAccountIconWidth: userAccountIcon && userAccountIconVisible ? userAccountIcon.offsetWidth + padding : 0
     };
   };
 
@@ -68,7 +72,8 @@ function SyncHeader (element) {
     const headerSpecialWidth = elementWidths.headerSpecialWidth;
     const socialSearchWidth = elementWidths.socialSearchWidth;
     const aboveMobileBarBreakpoint = window.innerWidth > 768;
-    const specialIconsTooWide = socialSearchWidth + elementWidths.cartWidth + padding >= headerSpecialWidth;
+    const specialIconsWidth = socialSearchWidth + elementWidths.cartWidth + elementWidths.userAccountIconWidth;
+    const specialIconsTooWide = specialIconsWidth >= headerSpecialWidth;
 
     // If below the mobile bar breakpoint (i.e., where the mobile nav bar shows up),
     // allow the title and tagline to wrap if it's wider than the header + PADDING.

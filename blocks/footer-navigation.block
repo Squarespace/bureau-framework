@@ -1,4 +1,4 @@
-{.if items || websiteSettings.userAccountsSettings.loginAllowed}
+{.if items}
 <nav id="mainNavigation" class="main-navigation" role="navigation" data-content-field="navigation">
   {.repeated section items}
 
@@ -49,14 +49,6 @@
 
     {.end}
 
-  {.end}
-  {.if websiteSettings.userAccountsSettings.loginAllowed}
-  <div class="nav-link--user-account user-account-link" data-controller="UserAccountsSetup">
-    <a href="#">
-      <span class="sign-in">Sign In</span>
-      <span class="my-account">My Account</span>        
-    </a>
-  </div>
   {.end}
 </nav>
 {.end}

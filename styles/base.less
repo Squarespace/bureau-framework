@@ -889,14 +889,69 @@ body:not(.view-list) .site-page {
     }
   }
 
-  .tweak-show-search-in-header .mobile-cart {
+  .tweak-show-search-in-header .mobile-bar:not(.mobile-bar--user-account-active) .mobile-cart {
     padding-left: 10px;
     margin-left: 6px;
-    border-left: solid 1px contrast(@bgColor, @contrastColorDarken, @contrastColorLighten);;
+    border-left: solid 1px contrast(@bgColor, @contrastColorDarken, @contrastColorLighten);
+  }
+
+  .tweak-show-search-in-header .mobile-bar.mobile-bar--user-account-active .user-account-link--mobile {
+    padding-left: 10px;
+    margin-left: 6px;
+    border-left: solid 1px contrast(@bgColor, @contrastColorDarken, @contrastColorLighten);
   }
 
   .desktop-cart {
     display: none;
+  }
+}
+
+// User Accounts Icon
+
+.user-account-link--icon {
+  display: none;
+}
+
+.tweak-user-account-link-position-icon-on-right {
+  .nav-link--user-account {
+    display: none;
+  }
+
+  .user-account-link--icon {
+    display: inline-block;
+    padding-left: 15px;
+    vertical-align: middle;
+    line-height: 0;
+    overflow: visible;
+    padding-left: 15px;
+
+    a {
+      display: block;
+      width: 25px;
+      height: 27px;
+      overflow: visible;
+      box-sizing: border-box;
+      padding: 2px;
+    }
+
+    svg {
+      stroke: @uiIconColor;
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+    }
+
+    use {
+      overflow: visible;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .user-account-link--mobile a {
+      width: 19px;
+      height: 21px;
+      padding: 0;
+    }
   }
 }
 
