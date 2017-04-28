@@ -112,8 +112,9 @@
               </div><!--
               -->{.if websiteSettings.userAccountsSettings.loginAllowed}<div class="user-account-link user-account-link--icon">
                 <a href="#">
-                  <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 25 27.23">
-                    <use xlink:href="/assets/ui-icons.svg#user-account-icon"></use>
+                  <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 30 30">
+                    <use class="use--thin" xlink:href="/assets/ui-icons.svg#user-account-icon--thin"></use>
+                    <use class="use--thick" xlink:href="/assets/ui-icons.svg#user-account-icon--thick"></use>
                   </svg>
                 </a>
               </div>{.end}<!--
@@ -172,8 +173,9 @@
         {.if websiteSettings.userAccountsSettings.loginAllowed}
         <div class="user-account-link user-account-link--icon user-account-link--mobile">
           <a href="#">
-            <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 25 27.23">
-              <use xlink:href="/assets/ui-icons.svg#user-account-icon"></use>
+            <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 30 30">
+              <use class="use--thin" xlink:href="/assets/ui-icons.svg#user-account-icon--thin"></use>
+              <use class="use--thick" xlink:href="/assets/ui-icons.svg#user-account-icon--thick"></use>
             </svg>
           </a>
         </div>

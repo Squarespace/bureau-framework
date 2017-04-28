@@ -910,6 +910,21 @@ body:not(.view-list) .site-page {
 
 .user-account-link--icon {
   display: none;
+
+  .use--thin {
+    display: none;
+  }
+}
+
+.tweak-ui-icon-weight-hairline,
+.tweak-ui-icon-weight-light {
+  .user-account-link--icon .use--thin {
+    display: block;
+  }
+
+  .user-account-link--icon .use--thick {
+    display: none;
+  }
 }
 
 .tweak-user-account-link-position-icon-on-right {
@@ -927,15 +942,15 @@ body:not(.view-list) .site-page {
 
     a {
       display: block;
-      width: 25px;
-      height: 27px;
+      width: 24px;
+      height: 24px;
       overflow: visible;
       box-sizing: border-box;
-      padding: 2px;
     }
 
     svg {
       stroke: @uiIconColor;
+      fill: none;
       overflow: visible;
       width: 100%;
       height: 100%;
@@ -948,7 +963,7 @@ body:not(.view-list) .site-page {
 
   @media screen and (max-width: 768px) {
     .user-account-link--mobile a {
-      width: 19px;
+      width: 21px;
       height: 21px;
       padding: 0;
     }
