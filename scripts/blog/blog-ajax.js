@@ -89,9 +89,9 @@ class Ajax {
       window.removeEventListener('scroll', this.boundDebouncedInfiniteScrollHandler);  
       const request = this.getNextPageUrl();
       this.requestNextPage(request).then((result) => {      
-        const nextPage = result.querySelectorAll(this.itemSelector);
+        const nextPageArray = Array.from(result.querySelectorAll(this.itemSelector));
 
-        nextPage.forEach((post) => {
+        nextPageArray.forEach((post) => {
           this.rootNode.appendChild(post);
         });
         this.renderCallback();
@@ -116,9 +116,9 @@ class Ajax {
     e.preventDefault();
     const request = this.getNextPageUrl();
     this.requestNextPage(request).then((result) => {
-      const nextPage = result.querySelectorAll(this.itemSelector);
+      const nextPageArray = Array.from(result.querySelectorAll(this.itemSelector));
 
-      nextPage.forEach((post) => {
+      nextPageArray.forEach((post) => {
         this.rootNode.appendChild(post);
       });
       this.renderCallback();
