@@ -26,10 +26,6 @@ function UserAccountsSetup (element) {
   };
 
   initUserAccounts();
-
-  return {
-    destroy
-  };
 }
 
 export default UserAccountsSetup;
