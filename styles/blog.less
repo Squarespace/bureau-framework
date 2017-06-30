@@ -167,7 +167,7 @@ article.entry--list:not(.entry--related) {
   opacity: 1;
   .transform(scale(1));
   .transform-origin(~'0 0');
-  .transition(~'opacity 360ms ease-in-out, transform 160ms ease-in-out');  
+  .transition(~'opacity 360ms ease-in-out, transform 160ms ease-in-out');
 
   &.grid-hidden {
     visibility: hidden;
@@ -664,6 +664,7 @@ body:not(.tweak-cards) header + .entry-content {
   overflow: hidden;
 
   img {
+    position: static;
     vertical-align: top;
     .transition(~'opacity 0.4s ease-out');
     &.unloaded {
