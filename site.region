@@ -110,7 +110,7 @@
                 </svg>
                </a>
               </div><!--
-              -->{.if websiteSettings.userAccountsSettings.loginAllowed}<div class="user-account-link user-account-link--icon">
+              -->{.if websiteSettings.userAccountsSettings.loginAllowed}<div class="user-account-link user-account-link--icon" data-controller="UserAccountsSetup">
                 <a href="#">
                   <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 30 30">
                     <use class="use--thin" xlink:href="/assets/ui-icons.svg#user-account-icon--thin"></use>
@@ -171,7 +171,7 @@
           </svg>
         </a>
         {.if websiteSettings.userAccountsSettings.loginAllowed}
-        <div class="user-account-link user-account-link--icon user-account-link--mobile">
+        <div class="user-account-link user-account-link--icon user-account-link--mobile" data-controller="UserAccountsSetup">
           <a href="#">
             <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 30 30">
               <use class="use--thin" xlink:href="/assets/ui-icons.svg#user-account-icon--thin"></use>
