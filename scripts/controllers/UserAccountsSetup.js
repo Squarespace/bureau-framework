@@ -12,17 +12,13 @@ function UserAccountsSetup (element) {
     const isUserAuthenticated = UserAccounts.isUserAuthenticated();
 
     if (signInLink && isUserAuthenticated) {
-      element.querySelector('a').removeChild(signInLink);
+      signInLink.parentNode.removeChild(signInLink);
     } else if (myAccountLink && !isUserAuthenticated) {
-      element.querySelector('a').removeChild(myAccountLink);
+      signInLink.parentNode.removeChild(myAccountLink);
     }
 
     element.classList.add('loaded');
     element.addEventListener('click', handleClick);
-  };
-
-  const destroy = () => {
-    element.removeEventListener('click', handleClick);
   };
 
   initUserAccounts();
