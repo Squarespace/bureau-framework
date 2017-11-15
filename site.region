@@ -112,9 +112,9 @@
               </div><!--
               -->{.if websiteSettings.userAccountsSettings.loginAllowed}<div class="user-account-link user-account-link--icon" data-controller="UserAccountsSetup">
                 <a href="#">
-                  <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 30 30">
-                    <use class="use--thin" xlink:href="/assets/ui-icons.svg#user-account-icon--thin"></use>
-                    <use class="use--thick" xlink:href="/assets/ui-icons.svg#user-account-icon--thick"></use>
+                  <svg class="Icon Icon--user-accounts user-account-icon" viewBox="0 0 28 28">
+                    <use class="use--odd" xlink:href="/assets/ui-icons.svg#accounts-icon--odd"></use>
+                    <use class="use--even" xlink:href="/assets/ui-icons.svg#accounts-icon--even"></use>
                   </svg>
                 </a>
               </div>{.end}<!--
@@ -173,9 +173,9 @@
         {.if websiteSettings.userAccountsSettings.loginAllowed}
         <div class="user-account-link user-account-link--icon user-account-link--mobile" data-controller="UserAccountsSetup">
           <a href="#">
-            <svg class="Icon Icon--user-account user-account-icon" viewBox="0 0 30 30">
-              <use class="use--thin" xlink:href="/assets/ui-icons.svg#user-account-icon--thin"></use>
-              <use class="use--thick" xlink:href="/assets/ui-icons.svg#user-account-icon--thick"></use>
+            <svg class="Icon Icon--user-accounts user-account-icon" viewBox="0 0 28 28">
+              <use class="use--odd" xlink:href="/assets/ui-icons.svg#accounts-icon--odd"></use>
+              <use class="use--even" xlink:href="/assets/ui-icons.svg#accounts-icon--even"></use>
             </svg>
           </a>
         </div>
