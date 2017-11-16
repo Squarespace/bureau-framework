@@ -27,7 +27,7 @@ function SyncHeader (element) {
   const siteTitle = element.querySelector('.site-title');
   const logoImage = element.querySelector('.logo-image');
   const customCart = element.querySelector('.sqs-custom-cart');
-  const userAccountIconVisible = Tweak.getValue('tweak-user-account-link-position') === 'Icon On Right';
+  const isUserAccountIconVisible = Tweak.getValue('tweak-user-account-link-position') === 'Icon On Right';
   const userAccountIcon = element.querySelector('.site-header .user-account-link--icon');
   const padding = 20;
 
@@ -39,7 +39,7 @@ function SyncHeader (element) {
       socialSearchWidth: socialSearch.offsetWidth,
       brandingWidth: siteTitle ? siteTitle.offsetWidth : logoImage.offsetWidth,
       cartWidth: customCart ? customCart.offsetWidth + padding : 0,
-      userAccountIconWidth: userAccountIcon && userAccountIconVisible ? userAccountIcon.offsetWidth + padding : 0
+      userAccountIconWidth: userAccountIcon && isUserAccountIconVisible ? userAccountIcon.offsetWidth + padding : 0
     };
   };
 

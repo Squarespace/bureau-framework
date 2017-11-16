@@ -14,7 +14,7 @@ function UserAccountsSetup (element) {
     if (signInLink && isUserAuthenticated) {
       signInLink.parentNode.removeChild(signInLink);
     } else if (myAccountLink && !isUserAuthenticated) {
-      signInLink.parentNode.removeChild(myAccountLink);
+      myAccountLink.parentNode.removeChild(myAccountLink);
     }
 
     element.classList.add('loaded');
