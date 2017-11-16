@@ -110,7 +110,15 @@
                 </svg>
                </a>
               </div><!--
-             -->{.if showCart}<a href="{shoppingCart|cart-url}" class="{squarespace.cart-classes} custom-cart">
+              -->{.if websiteSettings.userAccountsSettings.loginAllowed}<div class="user-account-link user-account-link--icon" data-controller="UserAccountsSetup">
+                <a href="#">
+                  <svg class="Icon Icon--user-accounts user-account-icon" viewBox="0 0 28 28">
+                    <use class="use--odd" xlink:href="/assets/ui-icons.svg#accounts-icon--odd"></use>
+                    <use class="use--even" xlink:href="/assets/ui-icons.svg#accounts-icon--even"></use>
+                  </svg>
+                </a>
+              </div>{.end}<!--
+              -->{.if showCart}<a href="{shoppingCart|cart-url}" class="{squarespace.cart-classes} custom-cart">
               <div class="custom-cart-bag">
                 <svg class="Icon Icon--bag custom-cart-bag-icon" viewBox="0 0 34 38">
                   <use class="use--odd" xlink:href="/assets/ui-icons.svg#bag-icon--odd"></use>
@@ -132,13 +140,13 @@
       <footer id="footer" class="site-footer responsive-margin--top responsive-padding--left responsive-padding--right responsive-padding--top responsive-padding--bottom" role="contentinfo">
         <squarespace:block-field id="footerBlocks" columns="12" label="Footer Content" />
         <div id="footerNavWrapper" class="nav-wrapper footer-nav">
-          <squarespace:navigation navigationId="footerNav" template="navigation" />
+          <squarespace:navigation navigationId="footerNav" template="footer-navigation" />
         </div>
       </footer>
 
     </div>
 
-    <div id="mobileBar" class="mobile-bar{.if showCart} mobile-bar--has-cart{.end}" data-controller="MobileOffset">
+    <div id="mobileBar" class="mobile-bar{.if showCart} mobile-bar--has-cart{.end}{.if websiteSettings.userAccountsSettings.loginAllowed} mobile-bar--user-account-active{.end}" data-controller="MobileOffset">
       <a class="nav-toggle-label nav-toggle-label--mobile flex-item" id="navToggleMobile" data-controller="NavToggle">
         <svg class="Icon Icon--hamburger nav-toggle-label-icon" viewBox="0 0 26 18">
           <use class="use--odd" xlink:href="/assets/ui-icons.svg#hamburger-icon--odd"></use>
@@ -162,6 +170,16 @@
             <use xlink:href="/assets/ui-icons.svg#close-icon-line"></use>
           </svg>
         </a>
+        {.if websiteSettings.userAccountsSettings.loginAllowed}
+        <div class="user-account-link user-account-link--icon user-account-link--mobile" data-controller="UserAccountsSetup">
+          <a href="#">
+            <svg class="Icon Icon--user-accounts user-account-icon" viewBox="0 0 28 28">
+              <use class="use--odd" xlink:href="/assets/ui-icons.svg#accounts-icon--odd"></use>
+              <use class="use--even" xlink:href="/assets/ui-icons.svg#accounts-icon--even"></use>
+            </svg>
+          </a>
+        </div>
+        {.end}
         {.if showCart}<a href="{shoppingCart|cart-url}" class="{squarespace.cart-classes} custom-cart mobile-cart">
           <div class="custom-cart-bag">
             <svg class="Icon Icon--bag custom-cart-bag-icon" viewBox="0 0 34 38">
