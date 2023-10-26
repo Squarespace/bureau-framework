@@ -25,7 +25,7 @@
     "@squarespace/polyfills": "1.0.2",
     "babel-runtime": "6.22.0",
     "core-js": "2.4.1",
-    "lodash": "4.17.2"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
     "eslint-config-squarespace": "^1.0.1",
